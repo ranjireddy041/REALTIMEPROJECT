@@ -28,7 +28,7 @@
             steps{
                 script{
                    sh '''BUILD_NUMBER=${BUILD_NUMBER}
-                    docker build -t ranjidokcerhub/devopsrepo:${BUILD_NUMBER} -f Dockerfile .'''
+                          cd Application && docker build -t ranjidokcerhub/devopsrepo:${BUILD_NUMBER}  .'''
                 }
             }
         }
@@ -40,8 +40,7 @@
                             docker login -u ranjidokcerhub -p ${dockerhub}
                             docker push ranjidokcerhub/devopsrepo:${BUILD_NUMBER}
                         '''
-
-                  }
+                   }
         
                 }
             }
