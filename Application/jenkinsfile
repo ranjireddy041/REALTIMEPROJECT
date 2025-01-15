@@ -63,7 +63,7 @@
                     git config user.email "ranjiredd@gmail.com"
                     git config user.name "ranji"
                     BUILD_NUMBER=${BUILD_NUMBER}
-			sed -i "s/devopsrepo:.*/devopsrepo:${BUILD_NUMBER}/g" deploymentfiles/deployment.yml
+			sed -i "s/devopsrepo:.*/devopsrepo:${BUILD_NUMBER}/g" Ansible/k8s_deployment.yml
                     git add .
                     
                     git commit -m "Update deployment image to version ${BUILD_NUMBER}"
