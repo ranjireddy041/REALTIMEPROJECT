@@ -9,17 +9,12 @@
                 git branch: 'main', url: 'https://github.com/ranjireddy041/REALTIMEPROJECT.git'
             }
         }
-    	
-
         stage('BuildingJar') {
             steps {
                 echo 'maven build'
                 sh 'mvn clean package'
             }
-        }
-		
-	
-		
+        }		
         stage('sonar') {
             steps {
                 echo 'scanning project'
@@ -37,11 +32,7 @@
                 }
             }
         }
-		
-     		
- 
-
-		 stage('Push image to Hub'){
+	stage('Push image to Hub'){
             steps{
                 script{
                    withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub')]) {
@@ -84,6 +75,7 @@
 	   }
 	}
     }
+ }
 }
 	
     
